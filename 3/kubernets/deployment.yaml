@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: code-education-go-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: code-education-go-server
+  template:
+    metadata:
+      labels:
+        name: code-education-go-server
+    spec:
+      containers:
+        - name: go-server
+          image: vitorandrietta/coeducationrocks-server:latest
+          ports:
+            - containerPort: 8000
+
